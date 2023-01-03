@@ -22,7 +22,7 @@ return new class extends Migration
                 ->default(DocumentConstant::STATUS_INIT);
 
             $table->foreignId('created_by')->constrained('users');
-            $table->foreignId('assinged_to')->nullable()->constrained('users');
+            $table->foreignId('assigned_to')->nullable()->constrained('users');
 
             $table->timestamps();
         });
