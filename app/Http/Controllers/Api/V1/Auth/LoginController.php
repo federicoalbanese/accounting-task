@@ -19,17 +19,13 @@ class LoginController extends ApiController
 
     public function authentication(AuthenticationRequest $authenticationRequest)
     {
-        if (\Auth::guard('api')->validate($authenticationRequest->only(['email', 'password']))) {
+        if (auth()->guard()->validate($authenticationRequest->only(['email', 'password']))) {
             $accessToken = $this->userService
                 ->findUserByEmail($authenticationRequest->get('email'))
                 ->syncRole($authenticationRequest->get('role'))
                 ->generateAccessToken();
 
-            return $this->success(
-                [
-                    'token' => new AccessTokenResource($accessToken),
-                ]
-            );
+            return $this->success(new AccessTokenResource($accessToken));
         }
 
         return $this->error(
