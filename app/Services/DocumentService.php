@@ -82,4 +82,17 @@ class DocumentService
         $customerDocument->setStatus(DocumentConstant::STATUS_CONFIRMED);
         $customerDocument->save();
     }
+
+    /**
+     * @param Document $document
+     * @param int      $userId
+     *
+     * @return void
+     */
+    public function confirmDocument(Document $document, int $userId): void
+    {
+        $document->setStatus(DocumentConstant::STATUS_CONFIRMED);
+        $document->setAssignedTo($userId);
+        $document->save();
+    }
 }
