@@ -8,8 +8,11 @@ class RoleConstants
 
     const REVIEWER = 'REVIEWER';
 
+    const SUPER_ADMIN = 'SUPER_ADMIN';
+
     const ROLES = [
         self::REGISTRAR,
         self::REVIEWER,
+        self::SUPER_ADMIN,
     ];
 }
