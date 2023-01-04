@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\DocumentService;
+use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('DocumentService', DocumentService::class);
+        $this->app->bind('UserService', UserService::class);
     }
 
     /**

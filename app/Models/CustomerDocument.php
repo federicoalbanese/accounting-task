@@ -9,16 +9,14 @@ use Illuminate\Database\Eloquent\Model;
  * Class Document
  *
  * @package App\Models
- * @property integer   id
- * @property string    name
- * @property string    priority
- * @property string    status
- * @property int       created_by
- * @property int|null  assigned_to
- * @property \DateTime created_at
- * @property \DateTime updated_at
+ * @property integer        id
+ * @property string         name
+ * @property string         status
+ * @property int|null       assigned_to
+ * @property \DateTime      created_at
+ * @property \DateTime      updated_at
  */
-class Document extends Model
+class CustomerDocument extends Model
 {
     /**
      * @return int
@@ -39,31 +37,11 @@ class Document extends Model
     /**
      * @param string $name
      *
-     * @return Document
+     * @return CustomerDocument
      */
-    public function setName(string $name): Document
+    public function setName(string $name): CustomerDocument
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriority(): string
-    {
-        return $this->priority;
-    }
-
-    /**
-     * @param string $priority
-     *
-     * @return Document
-     */
-    public function setPriority(string $priority): Document
-    {
-        $this->priority = $priority;
 
         return $this;
     }
@@ -79,31 +57,11 @@ class Document extends Model
     /**
      * @param string $status
      *
-     * @return Document
+     * @return CustomerDocument
      */
-    public function setStatus(string $status): Document
+    public function setStatus(string $status): CustomerDocument
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCreatedBy(): int
-    {
-        return $this->created_by;
-    }
-
-    /**
-     * @param int $created_by
-     *
-     * @return Document
-     */
-    public function setCreatedBy(int $created_by): Document
-    {
-        $this->created_by = $created_by;
 
         return $this;
     }
@@ -119,9 +77,9 @@ class Document extends Model
     /**
      * @param int|null $assigned_to
      *
-     * @return Document
+     * @return CustomerDocument
      */
-    public function setAssignedTo(?int $assigned_to): Document
+    public function setAssignedTo(?int $assigned_to): CustomerDocument
     {
         $this->assigned_to = $assigned_to;
 
@@ -135,7 +93,6 @@ class Document extends Model
     {
         return $this->created_at;
     }
-
 
     /**
      * @return \DateTime

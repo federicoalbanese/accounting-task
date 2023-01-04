@@ -1,9 +1,9 @@
 <?php
 
+use App\Constants\DocumentConstant;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Constants\DocumentConstant;
 
 return new class extends Migration
 {
@@ -14,17 +14,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function(Blueprint $table) {
+        Schema::create('customer_documents', function(Blueprint $table) {
             $table->id();
             $table->string('name');
-
-            $table->enum('priority', DocumentConstant::PRIORITIES);
+            $table->foreignId('assigned_to')->nullable();
             $table->enum('status', DocumentConstant::STATUSES)
                 ->default(DocumentConstant::STATUS_INIT);
-
-            $table->foreignId('created_by')->constrained('users');
-            $table->foreignId('assigned_to')->nullable()->constrained('users');
-
             $table->timestamps();
         });
     }
@@ -36,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('customer_documents');
     }
 };
