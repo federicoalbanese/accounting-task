@@ -11,7 +11,7 @@ Route::group(
 );
 
 Route::group(['as' => 'documents.', 'prefix' => 'documents', 'middleware' => 'auth:api'], function() {
-    Route::get('/', [DocumentController::class, 'indexَAction'])->name('index');
-    Route::get('/pick/{customerDocument}', [DocumentController::class, 'pickCustomerDocument'])->name('pick');
+    Route::get('/', [DocumentController::class, 'customerDocumentIndexAction'])->name('index');
+    Route::post('/pick/{customerDocument}', [DocumentController::class, 'pickCustomerDocument'])->name('pick');
     Route::post('/store', [DocumentController::class, 'storeAction'])->name('store');
 });
