@@ -28,7 +28,7 @@ class DocumentController extends ApiController
      */
     public function customerDocumentIndexAction()
     {
-        $documents = $this->documentService->getDocumentList();
+        $documents = $this->documentService->getCustomerDocumentList();
 
         return $this->success(CustomerDocumentResource::collection($documents));
     }
@@ -61,9 +61,7 @@ class DocumentController extends ApiController
             'name' => $storeRequest->get('name'),
             'priority' => $storeRequest->get('priority'),
             'user_id' => $this->getUser()->id,
-
         ];
-
         $document = $this->documentService->store($parameters);
 
         return $this->success(new DocumentResource($document));
