@@ -40,7 +40,7 @@ class UserService
      */
     public function syncRole(string $role): UserService
     {
-        $this->user->syncRoles([$this->findRole($role)]);
+        $this->user->syncRoles([$this->findRole($role)->id]);
 
         return $this;
     }
