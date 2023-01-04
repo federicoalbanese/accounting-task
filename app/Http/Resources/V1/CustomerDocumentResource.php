@@ -11,12 +11,13 @@ class CustomerDocumentResource extends JsonResource
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
-            'name' => $this->name
+            'id' => $this->id,
+            'name' => $this->name,
         ];
     }
 }
