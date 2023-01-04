@@ -6,17 +6,33 @@ use App\Constants\DocumentConstant;
 use App\Models\CustomerDocument;
 use App\Models\Document;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Query\Builder;
 
 class DocumentService
 {
     /**
      * @return Collection|array
      */
-    public function getDocumentList(): Collection|array
+    public function getCustomerDocumentList(): Collection|array
     {
         return CustomerDocument::query()
             ->where('status', '=', DocumentConstant::STATUS_INIT)
             ->whereNull('assigned_to')
+            ->get();
+    }
+
+    /**
+     * @param int $userId
+     *
+     * @return Collection|array
+     */
+    public function getDocumentList(int $userId): Collection|array
+    {
+        return Document::query()
+            ->where('created_by', '!=', $userId)
+            ->where('status', '=', DocumentConstant::STATUS_INIT)
+            ->orderByRaw('FIELD(priority, \'' . implode("', '", DocumentConstant::PRIORITIES) . '\') asc')
+            ->orderBy('created_at', 'DESC')
             ->get();
     }
 
