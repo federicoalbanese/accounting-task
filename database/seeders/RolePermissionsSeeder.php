@@ -31,19 +31,21 @@ class RolePermissionsSeeder extends Seeder
             Permission::query()
                 ->select('id')
                 ->whereIn('title', $permissionsListRegistrar)
-                ->pluck('id')->toArray();
+                ->pluck('id')
+                ->toArray();
         $permissionsReviewer =
             Permission::query()
                 ->select('id')
-                ->whereIn('title', $permissionsListRegistrar)
-                ->pluck('id')->toArray();
+                ->whereIn('title', $permissionsListReviewer)
+                ->pluck('id')
+                ->toArray();
 
         /** @var Role $operatorRole */
         $operatorRole = Role::query()->where('name', '=', RoleConstants::REGISTRAR)->first();
-        $operatorRole->permissions()->sync($allPermission);
+        $operatorRole->permissions()->sync($permissionsRegistrar);
 
         /** @var Role $operatorRole */
         $operatorRole = Role::query()->where('name', '=', RoleConstants::REVIEWER)->first();
-        $operatorRole->permissions()->sync($allPermission);
+        $operatorRole->permissions()->sync($permissionsReviewer);
     }
 }
