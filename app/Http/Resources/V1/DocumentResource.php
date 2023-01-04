@@ -16,7 +16,10 @@ class DocumentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            '' => $this->s
+            'id' => $this->id,
+            'name' => $this->name,
+            'priority' => $this->priority,
+            'status' => $this->status,
         ];
     }
 }
