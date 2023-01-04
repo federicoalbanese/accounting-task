@@ -31,6 +31,6 @@ class PermissionMiddleware
             abort(403);
         }
 
-        return redirect()->route('login');
+        return abort(401);
     }
 }
