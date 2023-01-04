@@ -30,7 +30,7 @@ class ReviewerDocumentController extends ApiController
      *
      * @return JsonResponse
      */
-    public function makeConfirmDocument(Document $document)
+    public function makeConfirmDocumentAction(Document $document)
     {
         $user = $this->getUser();
         if ($this->documentNotConfirmed($document, $user->id)) {

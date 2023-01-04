@@ -30,5 +30,9 @@ class DatabaseSeeder extends Seeder
             $roleObj->name = $role;
             $roleObj->save();
         }
+
+        $this->call([
+            RolePermissionsSeeder::class,
+        ]);
     }
 }
