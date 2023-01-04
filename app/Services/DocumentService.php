@@ -66,4 +66,20 @@ class DocumentService
 
         return $document->refresh();
     }
+
+    /**
+     * @param int $customerDocument
+     *
+     * @return void
+     */
+    public function makeConfirmedCustomerDocument(int $customerDocument): void
+    {
+        /** @var CustomerDocument $customerDocument */
+        $customerDocument = CustomerDocument::query()
+            ->where('id', '=', $customerDocument)
+            ->first();
+
+        $customerDocument->setStatus(DocumentConstant::STATUS_CONFIRMED);
+        $customerDocument->save();
+    }
 }

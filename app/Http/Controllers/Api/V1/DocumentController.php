@@ -63,6 +63,7 @@ class DocumentController extends ApiController
             'user_id' => $this->getUser()->id,
         ];
         $document = $this->documentService->store($parameters);
+        $this->documentService->makeConfirmedCustomerDocument($storeRequest->get('customer_document_id'));
 
         return $this->success(new DocumentResource($document));
     }
