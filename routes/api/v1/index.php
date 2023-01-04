@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth:api'], function() {
 
         Route::group(['as' => 'reviewers.', 'prefix' => 'reviewers'], function() {
             Route::get('/', [ReviewerDocumentController::class, 'indexAction'])->name('index');
+            Route::get('/confirm/{document}', [ReviewerDocumentController::class, 'makeConfirmDocument'])
+                ->name('make_confirm_document');
         });
     });
 });
