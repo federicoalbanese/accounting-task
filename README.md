@@ -31,5 +31,3 @@ Start the server
 
 ## Authors
 - [@federicoalbanese](https://github.com/federicoalbanese)
-
-vmess://eyJhZGQiOiIxNTIuODkuNDYuODkiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImhvc3QiOiIiLCJpZCI6ImQ5NGZhZTFhLTc3NDEtNGJiMi1kNmY2LWFjNmJiN2QxNDliMiIsIm5ldCI6InRjcCIsInBhdGgiOiIvIiwicG9ydCI6IjExMTAwIiwicHMiOiJ5b3pfdnBuOikiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoibm9uZSIsInR5cGUiOiJodHRwIiwidiI6IjIifQ==
